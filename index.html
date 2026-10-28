@@ -116,6 +116,17 @@ button{cursor:pointer}
 .stag.s-chiri{background:var(--new);border-color:var(--new);color:var(--on-new)}
 .axis.geo .ainfo{align-self:center}
 @media (max-width:520px){.xlinks{flex-direction:column;gap:6px}}
+.gmap{display:block;width:100%;min-width:620px;height:auto;color:var(--map-land)}
+.gpt{cursor:pointer}
+.gpt .hit{fill:transparent}
+.gpt .gd{fill:var(--new);stroke:var(--surface);stroke-width:.8}
+.gpt:hover .gd{r:3.4}
+.gpt.on .gd{fill:var(--ink)}
+.gnone{display:flex;gap:8px;align-items:baseline;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:12px}
+.gnone b{flex:none;font-size:11px;color:var(--muted)}
+.gnone span{display:flex;flex-wrap:wrap;gap:5px}
+.mxc.sm{display:inline-block;width:auto;padding:2px 10px;border-radius:999px;font-size:12px}
+@media (max-width:520px){.gnone{flex-direction:column;gap:6px}}
 /* 時空マトリクス */
 .mx{scroll-margin-top:72px;margin-top:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:16px 16px 14px}
 .mx h2{margin:0;font-size:16px;font-weight:900;letter-spacing:.04em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -3144,6 +3155,30 @@ function mxView(){
     (function(){var g=linksOf(sel.l);return g.length?'<h4>地理でつながる講</h4><div class="mxsame">'+g.map(function(x){return '<button class="mxc" data-act="goto" data-id="'+esc(x.l.id)+'"><b>地理</b><span class="tt">'+esc(x.l.title.replace(/\s*―.*$/,''))+'</span><span class="rg">'+esc(x.c.label)+'</span></button>'}).join('')+'</div>':''})()+
     (sel.l.open?'<a class="mxgo" href="#'+esc(sel.l.id)+'">この講の教材へ ↓</a>':'')+'</div></section>';
 }
+
+/* ---------- 地理：世界地図 ---------- */
+var gmPt=null;
+function gtitle(l){return l.title.replace(/\s*―.*$/,'')}
+function gmView(){
+  var all=allLessons('chiri'), pts=[];
+  all.forEach(function(x){((x.l.axis&&x.l.axis.places)||[]).forEach(function(p){pts.push({x:p.lon+180,y:84-p.lat,p:p,o:x})})});
+  var near=gmPt?pts.filter(function(q){return Math.abs(q.x-gmPt.x)<7&&Math.abs(q.y-gmPt.y)<7}):[];
+  var nearIds={}; near.forEach(function(q){nearIds[q.o.l.id]=1});
+  var dots=pts.map(function(q){var on=nearIds[q.o.l.id];
+    return '<g class="gpt'+(on?' on':'')+'" data-act="geo-pt" data-x="'+q.x.toFixed(1)+'" data-y="'+q.y.toFixed(1)+'"><circle class="hit" cx="'+q.x.toFixed(1)+'" cy="'+q.y.toFixed(1)+'" r="7"/><circle class="gd" cx="'+q.x.toFixed(1)+'" cy="'+q.y.toFixed(1)+'" r="'+(on?3.4:2.6)+'"><title>'+esc(q.p.n+'：'+gtitle(q.o.l))+'</title></circle></g>'}).join('');
+  var h='<section class="mx gm" id="gm" aria-label="世界地図"><h2>世界地図</h2>'+
+    '<div class="mxscroll gscroll"><svg class="gmap" viewBox="0 0 360 142" role="img" aria-label="講で扱う場所の世界地図"><use href="#worldland"/>'+dots+'</svg></div>';
+  if(near.length){
+    var seen={}, rows=[];
+    near.forEach(function(q){if(seen[q.o.l.id])return;seen[q.o.l.id]=1;
+      var pn=near.filter(function(r){return r.o.l.id===q.o.l.id}).map(function(r){return r.p.n}).join('・');
+      rows.push('<button class="mxc" data-act="goto" data-id="'+esc(q.o.l.id)+'"><b>'+esc(q.o.c.badge||'')+'</b><span class="tt">'+esc(gtitle(q.o.l))+' ↓</span><span class="rg">'+esc(pn)+'</span></button>')});
+    h+='<div class="mxinfo"><div class="mxsame">'+rows.join('')+'</div></div>';
+  }
+  var none=all.filter(function(x){return !((x.l.axis&&x.l.axis.places)||[]).length});
+  if(none.length) h+='<div class="gnone"><b>地図の点がない講</b><span>'+none.map(function(x){return '<button class="mxc sm" data-act="goto" data-id="'+esc(x.l.id)+'">'+esc(gtitle(x.l))+'</button>'}).join('')+'</span></div>';
+  return h+'</section>';
+}
 function linksHtml(l){
   var ls=linksOf(l); if(!ls.length) return '';
   var other=ls[0].s;
@@ -3228,7 +3263,7 @@ function render(){
   if(!edit) h+=newsView();
   if(!edit){var d=nowCard(); if(d) h+='<div class="dash" style="margin-top:14px">'+d+'</div>'}
   if(!edit) h+=subjSwitch();
-  if(!edit&&SUBJ==='rekishi') h+=mxView();
+  if(!edit) h+=(SUBJ==='rekishi'?mxView():gmView());
   h+=nav();
   (edit?state.chapters:chaps()).forEach(function(c,ci){
     h+='<section class="chap" id="'+esc(c.id)+'" style="--h:'+hue(ci)+'"><div class="chead"><span class="cbadge" aria-hidden="true">'+esc(cnum(c))+'</span><span class="cl">'+esc(c.label)+(c.era?'<span class="era">'+esc(c.era)+'</span>':'')+'</span><h2>'+esc(c.title)+'</h2></div>';
@@ -3462,6 +3497,7 @@ app.addEventListener('click',function(e){
   var b=e.target.closest('[data-act]'); if(!b) return;
   var a=b.dataset.act, ds=b.dataset;
   if(a==='subj'){if(ds.k!==SUBJ){setSubj(ds.k);query='';render();var sw=document.querySelector('.subj');if(sw&&sw.getBoundingClientRect().top<0)sw.scrollIntoView({block:'start'})}return}
+  if(a==='geo-pt'){var nx=+ds.x,ny=+ds.y;gmPt=(gmPt&&gmPt.x===nx&&gmPt.y===ny)?null:{x:nx,y:ny};render();return}
   if(a==='goto'){gotoLesson(ds.id);return}
   if(a==='mx-sel'){var j=!!ds.jump;mxSel=(!j&&mxSel===ds.id)?null:ds.id;render();if(j){var m=document.getElementById('mx');if(m)m.scrollIntoView({behavior:'smooth',block:'start'})}scrollMxTo();return}
   if(a==='news-more'){newsAll=!newsAll;render();return}
