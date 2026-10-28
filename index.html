@@ -16,7 +16,7 @@
 :root{
   --bg:#F6F6F6; --surface:#FFFFFF; --ink:#111111; --muted:#5E5E5E; --line:#D9D9D9;
   --accent:#111111; --accent-soft:#EDEDED; --on-accent:#FFFFFF;
-  --done:#1E7A4F; --done-soft:#E3F3EA; --new:#C8322A; --danger:#B23A3A; --mark:#FFE58A;
+  --done:#1E7A4F; --done-soft:#E3F3EA; --new:#1E9BD7; --on-new:#FFFFFF; --danger:#B23A3A; --mark:#FFE58A;
   --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
   --f-display:"Dela Gothic One","Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
   --r:12px; --art:none; --map-land:#C9C9C9;
@@ -27,11 +27,11 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E0E0E; --surface:#181818; --ink:#F2F2F2; --muted:#A8A8A8; --line:#333333;
   --accent:#F2F2F2; --accent-soft:#262626; --on-accent:#111111;
-  --done:#62CF98; --done-soft:#183126; --new:#F0705F; --danger:#F08A8A; --mark:#6B5A12; --art:invert(1); --hero-bg:#000000; --hero-edge:#333333; --map-land:#4A4A4A; color-scheme:dark}}
+  --done:#62CF98; --done-soft:#183126; --new:#5CC4F2; --on-new:#0E0E0E; --danger:#F08A8A; --mark:#6B5A12; --art:invert(1); --hero-bg:#000000; --hero-edge:#333333; --map-land:#4A4A4A; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0E0E0E; --surface:#181818; --ink:#F2F2F2; --muted:#A8A8A8; --line:#333333;
   --accent:#F2F2F2; --accent-soft:#262626; --on-accent:#111111;
-  --done:#62CF98; --done-soft:#183126; --new:#F0705F; --danger:#F08A8A; --mark:#6B5A12; --art:invert(1); --hero-bg:#000000; --hero-edge:#333333; --map-land:#4A4A4A; color-scheme:dark}
+  --done:#62CF98; --done-soft:#183126; --new:#5CC4F2; --on-new:#0E0E0E; --danger:#F08A8A; --mark:#6B5A12; --art:invert(1); --hero-bg:#000000; --hero-edge:#333333; --map-land:#4A4A4A; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7}
@@ -49,11 +49,11 @@ button{cursor:pointer}
 .hero-top{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
 .hero .kicker{font-size:11px;letter-spacing:.28em;color:#9A9A9A;font-weight:700}
 .hero .jp{font-family:var(--f-title);font-weight:800;font-size:clamp(18px,4.4vw,24px);letter-spacing:.18em;display:flex;align-items:center;gap:10px}
-.seal{width:24px;height:24px;background:#C8322A;color:#FFFFFF;font-family:var(--f-title);font-weight:800;font-size:14px;display:grid;place-items:center;border-radius:3px;transform:rotate(-4deg);letter-spacing:0}
+.seal{width:24px;height:24px;background:var(--new);color:#FFFFFF;font-family:var(--f-title);font-weight:800;font-size:14px;display:grid;place-items:center;border-radius:3px;transform:rotate(-4deg);letter-spacing:0}
 .his{position:relative;z-index:2;margin-top:18px;min-width:0;font-family:var(--f-his);font-weight:400;font-size:min(17.5vw,196px);line-height:.86;letter-spacing:.01em;text-transform:uppercase;display:flex;align-items:flex-end;white-space:nowrap}
 .his .w2{color:transparent;-webkit-text-stroke:2px #FFFFFF;paint-order:stroke}
 .his .gap{display:inline-block;width:.32em;align-self:stretch;position:relative}
-.his .gap::before{content:"";position:absolute;left:50%;top:6%;bottom:4%;width:.07em;transform:translateX(-50%);background:#E0453A}
+.his .gap::before{content:"";position:absolute;left:50%;top:6%;bottom:4%;width:.07em;transform:translateX(-50%);background:#4FC3F7}
 @media (prefers-reduced-motion:no-preference){
   .his .gap{animation:split 1.4s cubic-bezier(.7,0,.2,1) .35s both}
   .his .gap::before{animation:caret 1.1s steps(1) 1.7s 3}
@@ -62,11 +62,11 @@ button{cursor:pointer}
 @keyframes caret{50%{opacity:0}}
 .motto{position:relative;z-index:2;margin-top:14px;display:grid;gap:6px;max-width:44ch}
 .motto .en{font-size:clamp(14px,3.6vw,17px);letter-spacing:.04em;color:#FFFFFF}
-.motto .en em{font-style:normal;color:#FF7A6B;font-weight:700}
+.motto .en em{font-style:normal;color:#7DD3FA;font-weight:700}
 .motto .ja{display:flex;align-items:center;gap:12px;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-weight:500;font-size:clamp(11px,2.9vw,13px);letter-spacing:.32em;color:#D6D6D6;line-height:1.6}
-.motto .ja::before{content:"";width:28px;height:1px;background:#E0453A;flex:none}
+.motto .ja::before{content:"";width:28px;height:1px;background:#4FC3F7;flex:none}
 .hero .hello{position:relative;z-index:2;margin-top:10px;justify-self:start;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.6);padding:3px 12px;border-radius:999px}
-.hero .hello b{color:#FF7A6B}
+.hero .hello b{color:#7DD3FA}
 .hero-art{position:relative;display:block;margin:6px -22px 0;width:calc(100% + 44px);height:auto;max-height:170px;color:#EDEDED;opacity:.55;pointer-events:none}
 .hero-art .hole{fill:var(--hero-bg)}
 .notice{margin-bottom:16px;padding:12px 14px;background:var(--accent-soft);border-radius:var(--r);white-space:pre-wrap}
@@ -82,7 +82,7 @@ button{cursor:pointer}
 .nitem .nb{grid-column:2;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink)}
 .nitem .nb a{color:var(--accent)}
 .nitem.imp{background:color-mix(in srgb,var(--new) 8%,var(--surface));border-radius:8px;padding-inline:8px;margin-inline:-8px;border-top-color:transparent}
-.tag.imp{background:var(--new);color:var(--surface)}
+.tag.imp{background:var(--new);color:var(--on-new)}
 .nmore{justify-self:start;margin-top:4px;background:none;border:0;padding:0;color:var(--accent);font-size:13px;font-weight:700}
 .nempty{font-size:13px;color:var(--muted)}
 .nedit{display:grid;gap:8px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg)}
@@ -110,7 +110,7 @@ button{cursor:pointer}
 .mxspan{position:absolute;top:0;bottom:0;background:var(--new);opacity:.12;pointer-events:none}
 .mxb{position:absolute;height:16px;border:0;padding:0 3px;border-radius:3px;background:var(--ink);color:var(--surface);font:700 9.5px/16px system-ui,sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;cursor:pointer;text-align:left;transition:opacity .15s}
 .mxb.fade{opacity:.22}
-.mxb.sel{background:var(--new);color:#fff}
+.mxb.sel{background:var(--new);color:var(--on-new)}
 .mxb:focus-visible{outline:2px solid var(--new);outline-offset:1px}
 .mxax{position:relative;height:16px;border-top:1px solid var(--ink);font-size:9.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .mxax span{position:absolute;top:3px;transform:translateX(-50%)}
@@ -129,7 +129,7 @@ button{cursor:pointer}
 .mxc .tt{font-size:12.5px;font-weight:700;line-height:1.4}
 .mxc .rg{grid-column:2;font-size:10.5px;color:var(--muted)}
 .mxgo{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--ink)}
-.amx{margin-top:2px;border:0;background:none;padding:0;font:700 11px/1.4 inherit;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;justify-self:start;grid-column:1/-1}
+.amx{margin-top:2px;border:0;background:none;padding:0;font-family:inherit;font-size:11px;font-weight:700;line-height:1.4;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;justify-self:start;grid-column:1/-1}
 /* 時間軸・空間軸（講カード） */
 .axis{display:grid;grid-template-columns:132px minmax(0,1fr);gap:8px 12px;align-items:center;padding:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
 .amap{width:132px;height:auto;display:block;color:var(--map-land)}
@@ -228,7 +228,7 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
 .lno{font-size:11px;font-weight:700;color:var(--c,var(--accent));background:var(--c-soft,var(--accent-soft));padding:1px 8px;border-radius:999px}
 .tag{font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;letter-spacing:.04em}
 .tag.cur{background:var(--accent);color:var(--on-accent)}
-.tag.new{background:var(--new);color:var(--surface)}
+.tag.new{background:var(--new);color:var(--on-new)}
 .ltitle{font-weight:900;font-size:17px;line-height:1.45;width:100%}
 .mats{display:flex;flex-wrap:wrap;gap:6px}
 .mats a,.mats span,.mats .mat{font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--c,var(--accent));color:var(--c-ink);background:var(--c,var(--accent));text-decoration:none;display:inline-flex;align-items:center;gap:5px}
@@ -2030,7 +2030,7 @@ function header(){
   if(restore&&canWrite) h+='<div class="banner"><span>保存できなかった編集内容があります。</span><button class="btn pri sm" data-act="restore">編集を復元</button><button class="btn sm" data-act="discard-restore">破棄</button></div>';
   if(edit) h+=editHead();
   var dt=new Date(), wd='日月火水木金土'.charAt(dt.getDay());
-  h+='<header class="hero"><div class="hero-top"><span class="kicker">'+(dt.getMonth()+1)+'月'+dt.getDate()+'日（'+wd+'）</span><span class="jp">'+esc(c.title)+'<span class="seal" aria-hidden="true">史</span></span></div>'+
+  h+='<header class="hero"><div class="hero-top"><span class="kicker">'+(dt.getMonth()+1)+'月'+dt.getDate()+'日（'+wd+'）</span></div>'+
     '<h1 class="his" aria-label="History is his story"><span class="w1">His</span><span class="gap" aria-hidden="true"></span><span class="w2">Story</span></h1>'+
     '<div class="motto"><p class="ja">歴史は、だれかが語った「物語」</p></div>'+
     ((!edit&&prevVisit&&newSince)?'<p class="hello">前回から教材が <b>'+newSince+'件</b> 増えています</p>':'')+
