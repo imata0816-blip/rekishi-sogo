@@ -2108,7 +2108,7 @@ function axisHtml(l){
     '<div class="ainfo"><div class="aline"><b>いつ</b><span class="ayr">'+esc(yr)+'</span></div>'+
       '<div class="aline"><b>どこ</b><span class="aplace">'+esc(pls.map(function(p){return p.n}).join('・'))+'</span></div>'+
       '</div>'+
-      '<button class="amx" data-act="mx-sel" data-id="'+esc(l.id)+'" data-jump="1">同じころの世界を見る →</button>'+'<div class="atl"><div class="aband" aria-hidden="true"><span class="trk"></span>'+ticks.map(function(t){return '<span class="tk" style="left:'+axX(t).toFixed(2)+'%"></span>'}).join('')+'<span class="seg" style="left:'+x0.toFixed(2)+'%;width:'+(x1-x0).toFixed(2)+'%"></span></div>'+
+      '<button class="amx" data-act="mx-sel" data-id="'+esc(l.id)+'" data-jump="1">世界の縦軸・横軸で見る →</button>'+'<div class="atl"><div class="aband" aria-hidden="true"><span class="trk"></span>'+ticks.map(function(t){return '<span class="tk" style="left:'+axX(t).toFixed(2)+'%"></span>'}).join('')+'<span class="seg" style="left:'+x0.toFixed(2)+'%;width:'+(x1-x0).toFixed(2)+'%"></span></div>'+
       '<div class="aticks" aria-hidden="true">'+[1500,1800,1850,1900,1950,2000].map(function(t){return '<span style="left:'+axX(t).toFixed(2)+'%">'+t+'</span>'}).join('')+'</div></div>'+
     '</div>';
 }
@@ -2140,7 +2140,7 @@ function mxView(){
     g+='<div class="mxlab">'+esc(r.n)+'</div><div class="mxrow" style="height:'+hgt+'px">'+span+bars+'</div>';
   });
   g+='<div class="mxlab" style="border-top:1px solid var(--ink)"></div><div class="mxax">'+[1500,1600,1700,1800,1850,1900,1950,2000].map(function(t){return '<span style="left:'+axX(t).toFixed(2)+'%">'+t+'</span>'}).join('')+'</div>';
-  var h='<section class="mx" id="mx" aria-label="同じころの世界"><h2>同じころの世界</h2>'+
+  var h='<section class="mx" id="mx" aria-label="世界の縦軸・横軸"><h2>世界の縦軸・横軸</h2>'+
     '<div class="mxscroll"><div class="mxgrid">'+g+'</div></div>';
   if(!sel) return h+'</section>';
   var same=all.filter(function(x){return x.l.id!==sel.l.id&&overlap(x.l.axis,sa)});
