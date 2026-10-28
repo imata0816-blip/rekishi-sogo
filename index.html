@@ -105,7 +105,7 @@ button{cursor:pointer}
 .mx h2 small{font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.02em}
 .mxscroll{overflow-x:auto;margin:12px -4px 0;padding:0 4px 4px;-webkit-overflow-scrolling:touch}
 .mxgrid{min-width:680px;display:grid;grid-template-columns:76px minmax(0,1fr)}
-.mxlab{position:sticky;left:-4px;z-index:2;background:var(--surface);font-size:10.5px;font-weight:700;color:var(--muted);line-height:1.25;padding:6px 8px 6px 0;border-top:1px solid var(--line);white-space:pre-line;display:flex;align-items:center}
+.mxlab{position:sticky;left:-4px;z-index:2;background:var(--surface);word-break:keep-all;font-size:10.5px;font-weight:700;color:var(--muted);line-height:1.25;padding:6px 8px 6px 0;border-top:1px solid var(--line);white-space:pre-line;display:flex;align-items:center}
 .mxrow{position:relative;border-top:1px solid var(--line);min-height:30px}
 .mxspan{position:absolute;top:0;bottom:0;background:var(--new);opacity:.12;pointer-events:none}
 .mxb{position:absolute;height:16px;border:0;padding:0 3px;border-radius:3px;background:var(--ink);color:var(--surface);font:700 9.5px/16px system-ui,sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;cursor:pointer;text-align:left;transition:opacity .15s}
@@ -121,12 +121,13 @@ button{cursor:pointer}
 .mxinfo .t small{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px}
 .mxinfo .m{font-size:12px;color:var(--muted);margin:4px 0 0}
 .mxinfo h4{font-size:12px;margin:12px 0 6px;letter-spacing:.06em}
-.mxsame{display:grid;gap:6px}
-.mxsame div{display:flex;gap:8px;align-items:baseline;font-size:12px}
-.mxsame b{flex:none;width:8.5em;font-size:10.5px;color:var(--muted)}
-.mxsame span{display:flex;flex-wrap:wrap;gap:4px}
-.mxc{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:2px 9px;font:500 11.5px/1.5 inherit;cursor:pointer}
+.mxlead{margin:4px 0 0;font-size:11.5px;color:var(--muted);word-break:keep-all;overflow-wrap:anywhere}
+.mxsame{display:grid;gap:4px}
+.mxc{display:grid;grid-template-columns:3em minmax(0,1fr);column-gap:6px;align-items:baseline;text-align:left;width:100%;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
 .mxc:hover{border-color:var(--ink)}
+.mxc b{font-size:11px;font-variant-numeric:tabular-nums}
+.mxc .tt{font-size:12.5px;font-weight:700;line-height:1.4}
+.mxc .rg{grid-column:2;font-size:10.5px;color:var(--muted)}
 .mxgo{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--ink)}
 .amx{margin-top:2px;border:0;background:none;padding:0;font:700 11px/1.4 inherit;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;justify-self:start;grid-column:1/-1}
 /* 時間軸・空間軸（講カード） */
@@ -150,7 +151,7 @@ button{cursor:pointer}
 .ascale{display:flex;gap:4px;flex-wrap:wrap}
 .ascale span{font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 .ascale span.on{background:var(--ink);border-color:var(--ink);color:var(--surface)}
-@media (max-width:520px){.mxsame div{flex-direction:column;gap:4px}.mxsame b{width:auto}}
+@media (max-width:520px){.mxgrid{grid-template-columns:62px minmax(0,1fr)}.mxlab{font-size:10px}.mx{padding:14px 12px 12px}.mxinfo .m{word-break:keep-all;overflow-wrap:anywhere}}
 @media (max-width:360px){.axis{grid-template-columns:104px minmax(0,1fr)}.amap{width:104px}}
 .atl{grid-column:1/-1;display:grid;gap:1px}
 /* 用語 */
@@ -2113,7 +2114,7 @@ function axisHtml(l){
 }
 
 /* ---------- 時空マトリクス ---------- */
-var REGIONS=[{k:'jp',n:'日本',s:'日本'},{k:'ea',n:'東・東南\nアジア',s:'東・東南アジア'},{k:'wa',n:'南・西アジア\nアフリカ',s:'南・西アジア／アフリカ'},{k:'eu',n:'ヨーロッパ\nロシア',s:'ヨーロッパ／ロシア'},{k:'am',n:'南北\nアメリカ',s:'南北アメリカ'}];
+var REGIONS=[{k:'jp',n:'日本',t:'日本'},{k:'ea',n:'東アジア',t:'東アジア'},{k:'wa',n:'西アジア\nアフリカ',t:'西アジア・アフリカ'},{k:'eu',n:'ヨーロッパ\nロシア',t:'ヨーロッパ'},{k:'am',n:'アメリカ',t:'アメリカ'}];
 var mxSel=null, mxLeft=null;
 function lcode(c,l){var n=String(l.label||'').replace(/[^0-9]/g,'');return cnum(c)+(n?'-'+n:'')}
 function scrollMxTo(){var sc=document.querySelector('.mxscroll'),b=sc&&sc.querySelector('.mxb.sel');if(!sc||!b)return;var r=b.getBoundingClientRect(),q=sc.getBoundingClientRect();if(r.left<q.left+80||r.right>q.right-10)sc.scrollLeft+=r.left-q.left-q.width/2}
@@ -2139,14 +2140,13 @@ function mxView(){
     g+='<div class="mxlab">'+esc(r.n)+'</div><div class="mxrow" style="height:'+hgt+'px">'+span+bars+'</div>';
   });
   g+='<div class="mxlab" style="border-top:1px solid var(--ink)"></div><div class="mxax">'+[1500,1600,1700,1800,1850,1900,1950,2000].map(function(t){return '<span style="left:'+axX(t).toFixed(2)+'%">'+t+'</span>'}).join('')+'</div>';
-  var h='<section class="mx" id="mx" aria-label="時空マトリクス"><h2>時空マトリクス<small>横が「いつ」、縦が「どこ」。棒（章-講）を押すと、同じころの世界が見えます</small></h2>'+
+  var h='<section class="mx" id="mx" aria-label="時空マトリクス"><h2>時空マトリクス</h2><p class="mxlead">横＝いつ、縦＝どこ。<wbr>棒を押すと、<wbr>同じころの世界が見えます</p>'+
     '<div class="mxscroll"><div class="mxgrid">'+g+'</div></div>';
   if(!sel) return h+'<p class="mxhint">たとえば「6-1」（大正デモクラシー）を押してみよう。同じころ、ヨーロッパやアメリカでは何が起きていた？</p></section>';
   var same=all.filter(function(x){return x.l.id!==sel.l.id&&overlap(x.l.axis,sa)});
-  var rows=REGIONS.map(function(r){
-    var ys=same.filter(function(x){return (x.l.axis.region||[]).indexOf(r.k)>=0});
-    if(!ys.length) return '';
-    return '<div><b>'+esc(r.s)+'</b><span>'+ys.map(function(x){return '<button class="mxc" data-act="mx-sel" data-id="'+esc(x.l.id)+'">'+esc(lcode(x.c,x.l)+' '+x.l.title)+'</button>'}).join('')+'</span></div>'}).join('');
+  same.sort(function(a,b){return a.l.axis.from-b.l.axis.from});
+  var rows=same.map(function(x){var rg=REGIONS.filter(function(r){return (x.l.axis.region||[]).indexOf(r.k)>=0}).map(function(r){return r.t}).join('・');
+    return '<button class="mxc" data-act="mx-sel" data-id="'+esc(x.l.id)+'"><b>'+esc(lcode(x.c,x.l))+'</b><span class="tt">'+esc(x.l.title)+'</span><span class="rg">'+esc(rg)+'</span></button>'}).join('');
   var yr=sa.from+'〜'+(sa.to>=new Date().getFullYear()?'現在':sa.to+'年');
   return h+'<div class="mxinfo"><p class="t"><small>'+esc(sel.c.label+' '+sel.l.label)+'</small>'+esc(sel.l.title)+'</p>'+
     '<p class="m">'+esc(yr)+'　｜　'+esc((sa.places||[]).map(function(p){return p.n}).join('・'))+'</p>'+
