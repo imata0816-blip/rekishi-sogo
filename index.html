@@ -2140,9 +2140,9 @@ function mxView(){
     g+='<div class="mxlab">'+esc(r.n)+'</div><div class="mxrow" style="height:'+hgt+'px">'+span+bars+'</div>';
   });
   g+='<div class="mxlab" style="border-top:1px solid var(--ink)"></div><div class="mxax">'+[1500,1600,1700,1800,1850,1900,1950,2000].map(function(t){return '<span style="left:'+axX(t).toFixed(2)+'%">'+t+'</span>'}).join('')+'</div>';
-  var h='<section class="mx" id="mx" aria-label="時空マトリクス"><h2>時空マトリクス</h2><p class="mxlead">横＝いつ、縦＝どこ。<wbr>棒を押すと、<wbr>同じころの世界が見えます</p>'+
+  var h='<section class="mx" id="mx" aria-label="同じころの世界"><h2>同じころの世界</h2>'+
     '<div class="mxscroll"><div class="mxgrid">'+g+'</div></div>';
-  if(!sel) return h+'<p class="mxhint">たとえば「6-1」（大正デモクラシー）を押してみよう。同じころ、ヨーロッパやアメリカでは何が起きていた？</p></section>';
+  if(!sel) return h+'</section>';
   var same=all.filter(function(x){return x.l.id!==sel.l.id&&overlap(x.l.axis,sa)});
   same.sort(function(a,b){return a.l.axis.from-b.l.axis.from});
   var rows=same.map(function(x){var rg=REGIONS.filter(function(r){return (x.l.axis.region||[]).indexOf(r.k)>=0}).map(function(r){return r.t}).join('・');
