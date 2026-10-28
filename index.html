@@ -99,6 +99,20 @@ button{cursor:pointer}
 .now .none{color:var(--on-accent);opacity:.85}
 .now .jump{font-size:13px;color:var(--on-accent)}
 
+.subj{display:grid;grid-template-columns:1fr 1fr;margin-top:22px;border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--surface)}
+.subj button{border:0;background:transparent;padding:12px 8px;font-size:16px;font-weight:900;letter-spacing:.12em;color:var(--muted)}
+.subj button+button{border-left:2px solid var(--ink)}
+.subj button.on{background:var(--ink);color:var(--surface)}
+.xlinks{display:flex;gap:8px;align-items:baseline;margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:12px}
+.xlinks b{flex:none;font-size:11px;color:var(--new);letter-spacing:.06em}
+.xlinks span{display:flex;flex-wrap:wrap;gap:5px}
+.xl{text-decoration:none;border:1px solid var(--new);color:var(--ink);border-radius:999px;padding:2px 10px;font-size:12px;line-height:1.5}
+.xl::after{content:" →";color:var(--new)}
+.xl:hover{background:color-mix(in srgb,var(--new) 12%,transparent)}
+.stag{display:inline-block;font-size:10px;font-weight:900;padding:0 6px;border-radius:4px;margin-right:6px;border:1px solid var(--ink)}
+.stag.s-chiri{background:var(--new);border-color:var(--new);color:var(--on-new)}
+.axis.geo .ainfo{align-self:center}
+@media (max-width:520px){.xlinks{flex-direction:column;gap:6px}}
 /* 時空マトリクス */
 .mx{scroll-margin-top:72px;margin-top:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:16px 16px 14px}
 .mx h2{margin:0;font-size:16px;font-weight:900;letter-spacing:.04em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -1936,7 +1950,966 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
    ]
   }
  ],
- "news": []
+ "news": [],
+ "geo": {
+  "title": "地理総合",
+  "chapters": [
+   {
+    "id": "g1",
+    "label": "第1部 第1章",
+    "badge": "1-1",
+    "title": "地図と地理情報システム",
+    "era": "地図でとらえる現代世界",
+    "lessons": [
+     {
+      "id": "g1s1",
+      "label": "1節",
+      "title": "地球上の位置と時差",
+      "open": true,
+      "kw": [
+       "地球上の位置と私たちの生活",
+       "時差と私たちの生活",
+       "時差の計算",
+       "緯度",
+       "経度",
+       "本初子午線",
+       "標準時",
+       "日付変更線"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "グリニッジ",
+         "lat": 51.5,
+         "lon": 0
+        },
+        {
+         "n": "明石",
+         "lat": 34.6,
+         "lon": 135
+        }
+       ]
+      },
+      "links": [
+       "c1l1"
+      ]
+     },
+     {
+      "id": "g1s2",
+      "label": "2節",
+      "title": "地図の役割と種類",
+      "open": true,
+      "kw": [
+       "地球儀と地図",
+       "身の回りの地図",
+       "地形図",
+       "地図記号",
+       "縮尺",
+       "等高線",
+       "統計地図",
+       "等値線図",
+       "階級区分図",
+       "GIS",
+       "地理情報システム",
+       "地理院地図",
+       "e-Stat",
+       "jSTAT MAP",
+       "WebGIS"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c0l2"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g2",
+    "label": "第1部 第2章",
+    "badge": "1-2",
+    "title": "結び付きを深める現代世界",
+    "era": "地図でとらえる現代世界",
+    "lessons": [
+     {
+      "id": "g2s1",
+      "label": "1節",
+      "title": "現代世界の国家と領域",
+      "open": true,
+      "kw": [
+       "現代世界の国家",
+       "日本の位置や領域",
+       "領土",
+       "領海",
+       "排他的経済水域",
+       "北方領土",
+       "竹島",
+       "尖閣諸島"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "北方領土",
+         "lat": 43.7,
+         "lon": 146
+        },
+        {
+         "n": "竹島",
+         "lat": 37.2,
+         "lon": 131.9
+        },
+        {
+         "n": "尖閣諸島",
+         "lat": 25.7,
+         "lon": 123.5
+        }
+       ]
+      },
+      "links": [
+       "c3l2",
+       "c4l1",
+       "c9l2"
+      ]
+     },
+     {
+      "id": "g2s2",
+      "label": "2節",
+      "title": "グローバル化する世界",
+      "open": true,
+      "kw": [
+       "国家間の結び付き",
+       "貿易によって結び付く世界",
+       "さまざまな交通網の発達",
+       "世界を結ぶ通信網の発達",
+       "観光のグローバル化",
+       "統計資料の活用"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c1l1",
+       "c4l2",
+       "c11l3"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g3",
+    "label": "第2部 第1章",
+    "badge": "2-1",
+    "title": "生活文化の多様性と国際理解",
+    "era": "国際理解と国際協力",
+    "lessons": [
+     {
+      "id": "g3s0",
+      "label": "序説",
+      "title": "生活文化の多様性",
+      "open": true,
+      "kw": [
+       "生活文化を考察する方法"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": []
+     },
+     {
+      "id": "g3s1",
+      "label": "1節",
+      "title": "世界の地形と人々の生活",
+      "open": true,
+      "kw": [
+       "大地形",
+       "変動帯",
+       "安定地域",
+       "河川がつくる地形",
+       "海岸の地形",
+       "氷河地形",
+       "乾燥地形",
+       "カルスト地形",
+       "空中写真"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": []
+     },
+     {
+      "id": "g3c1",
+      "label": "追究 自然1",
+      "title": "乾燥した大陸と太平洋の島々での生活 ―オセアニア―",
+      "open": true,
+      "kw": [
+       "人々をひきつける多様な自然環境",
+       "自然環境を生かした産業と人々の生活",
+       "オーストラリア"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "オーストラリア",
+         "lat": -25,
+         "lon": 134
+        },
+        {
+         "n": "ニュージーランド",
+         "lat": -41,
+         "lon": 174
+        }
+       ]
+      },
+      "links": [
+       "c4l2",
+       "c8l2"
+      ]
+     },
+     {
+      "id": "g3s2",
+      "label": "2節",
+      "title": "世界の気候と人々の生活",
+      "open": true,
+      "kw": [
+       "気温・降水",
+       "大気大循環",
+       "植生",
+       "気候区分",
+       "雨温図",
+       "ハイサーグラフ",
+       "熱帯",
+       "乾燥帯",
+       "温帯",
+       "亜寒帯",
+       "寒帯"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": []
+     },
+     {
+      "id": "g3c2",
+      "label": "追究 自然2",
+      "title": "モンスーンの影響を受ける地域での生活 ―東南アジア―",
+      "open": true,
+      "kw": [
+       "モンスーンの影響を受けてきた人々の生活",
+       "気候を生かした農業と人々の生活",
+       "モンスーン",
+       "稲作"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "バンコク",
+         "lat": 13.7,
+         "lon": 100.5
+        },
+        {
+         "n": "ハノイ",
+         "lat": 21,
+         "lon": 105.8
+        },
+        {
+         "n": "ジャカルタ",
+         "lat": -6.2,
+         "lon": 106.8
+        }
+       ]
+      },
+      "links": [
+       "c4l2",
+       "c8l2",
+       "c10l2"
+      ]
+     },
+     {
+      "id": "g3s3",
+      "label": "3節",
+      "title": "世界の言語・宗教と人々の生活",
+      "open": true,
+      "kw": [
+       "世界の言語と人々の生活文化",
+       "世界の宗教と人々の生活文化",
+       "キリスト教",
+       "イスラーム",
+       "仏教",
+       "ヒンドゥー教"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c0l1",
+       "c2l3"
+      ]
+     },
+     {
+      "id": "g3c3",
+      "label": "追究 宗教1",
+      "title": "イスラームと人々の生活の関わり ―中央アジア・西アジア・北アフリカ―",
+      "open": true,
+      "kw": [
+       "イスラームを中心とした生活文化",
+       "乾燥地域で暮らすムスリムの生活文化",
+       "変化するムスリムの生活",
+       "ムスリム"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "メッカ",
+         "lat": 21.4,
+         "lon": 39.8
+        },
+        {
+         "n": "イスタンブール",
+         "lat": 41,
+         "lon": 29
+        },
+        {
+         "n": "カイロ",
+         "lat": 30,
+         "lon": 31.2
+        },
+        {
+         "n": "タシケント",
+         "lat": 41.3,
+         "lon": 69.2
+        }
+       ]
+      },
+      "links": [
+       "c0l1",
+       "c2l3",
+       "c5l2",
+       "c9l1",
+       "c10l2"
+      ]
+     },
+     {
+      "id": "g3c4",
+      "label": "追究 宗教2",
+      "title": "ヒンドゥー教と人々の生活の関わり ―インド―",
+      "open": true,
+      "kw": [
+       "インドの歩みとヒンドゥー教",
+       "宗教や自然環境の影響を受けるインドの食生活",
+       "変化するヒンドゥー教徒の生活"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "デリー",
+         "lat": 28.6,
+         "lon": 77.2
+        },
+        {
+         "n": "ヴァラナシ",
+         "lat": 25.3,
+         "lon": 83
+        }
+       ]
+      },
+      "links": [
+       "c0l1",
+       "c2l3",
+       "c9l1"
+      ]
+     },
+     {
+      "id": "g3s4",
+      "label": "4節",
+      "title": "歴史的背景と人々の生活",
+      "open": true,
+      "kw": [
+       "歴史的背景が人々の生活に与える影響"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c0l2",
+       "c4l2"
+      ]
+     },
+     {
+      "id": "g3c5",
+      "label": "追究 歴史1",
+      "title": "移民の歴史と人々の生活の関わり ―ラテンアメリカ―",
+      "open": true,
+      "kw": [
+       "ヨーロッパ社会の影響が強い文化",
+       "大土地所有制が生み出した社会構造",
+       "外国資本による工業化と生活の変化",
+       "移民"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "メキシコシティ",
+         "lat": 19.4,
+         "lon": -99.1
+        },
+        {
+         "n": "リマ",
+         "lat": -12,
+         "lon": -77
+        },
+        {
+         "n": "サンパウロ",
+         "lat": -23.5,
+         "lon": -46.6
+        }
+       ]
+      },
+      "links": [
+       "c0l2",
+       "c2l2"
+      ]
+     },
+     {
+      "id": "g3c6",
+      "label": "追究 歴史2",
+      "title": "植民地支配の歴史と人々の生活の関わり ―サハラ以南アフリカ―",
+      "open": true,
+      "kw": [
+       "生活文化に残る旧宗主国の影響",
+       "植民地支配の影響が残るアフリカの産業",
+       "人々の生活の変化と経済成長への取り組み",
+       "モノカルチャー経済"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "ラゴス",
+         "lat": 6.5,
+         "lon": 3.4
+        },
+        {
+         "n": "ナイロビ",
+         "lat": -1.3,
+         "lon": 36.8
+        },
+        {
+         "n": "ヨハネスバーグ",
+         "lat": -26.2,
+         "lon": 28
+        }
+       ]
+      },
+      "links": [
+       "c0l2",
+       "c4l2",
+       "c10l1"
+      ]
+     },
+     {
+      "id": "g3c7",
+      "label": "追究 歴史3",
+      "title": "国家体制の変化と人々の生活の関わり ―ロシア―",
+      "open": true,
+      "kw": [
+       "国家体制の変化が人々の生活に与えた影響",
+       "変化するロシアの産業",
+       "ソ連"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "モスクワ",
+         "lat": 55.8,
+         "lon": 37.6
+        },
+        {
+         "n": "ウラジオストク",
+         "lat": 43.1,
+         "lon": 131.9
+        }
+       ]
+      },
+      "links": [
+       "c5l1",
+       "c9l1",
+       "c11l1",
+       "c11l3"
+      ]
+     },
+     {
+      "id": "g3s5",
+      "label": "5節",
+      "title": "世界の産業と人々の生活",
+      "open": true,
+      "kw": [
+       "人々の生活を支える農業の発展",
+       "人々の生活を支える工業の発展",
+       "グローバル化する現代の産業と人々の生活"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c1l1",
+       "c7l1"
+      ]
+     },
+     {
+      "id": "g3c8",
+      "label": "追究 産業1",
+      "title": "産業力が世界の生活文化に与える影響 ―アメリカ合衆国―",
+      "open": true,
+      "kw": [
+       "世界に大きな影響力をもつ知識産業と資源",
+       "世界の食卓に影響を与える農業",
+       "産業の発展を支えてきた移民の力"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "ニューヨーク",
+         "lat": 40.7,
+         "lon": -74
+        },
+        {
+         "n": "シカゴ",
+         "lat": 41.9,
+         "lon": -87.6
+        },
+        {
+         "n": "シリコンバレー",
+         "lat": 37.4,
+         "lon": -122
+        }
+       ]
+      },
+      "links": [
+       "c2l2",
+       "c7l1",
+       "c9l1"
+      ]
+     },
+     {
+      "id": "g3c9",
+      "label": "追究 産業2",
+      "title": "経済成長による人々の生活の変化 ―東アジア―",
+      "open": true,
+      "kw": [
+       "東アジアの経済成長とその歩み",
+       "経済成長による中国の生活の変化",
+       "経済成長による韓国の生活の変化"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "北京",
+         "lat": 39.9,
+         "lon": 116.4
+        },
+        {
+         "n": "上海",
+         "lat": 31.2,
+         "lon": 121.5
+        },
+        {
+         "n": "ソウル",
+         "lat": 37.6,
+         "lon": 127
+        }
+       ]
+      },
+      "links": [
+       "c9l1",
+       "c10l2",
+       "c10l3",
+       "c11l1"
+      ]
+     },
+     {
+      "id": "g3c10",
+      "label": "追究 産業3",
+      "title": "地域統合が人々の生活や産業に与える影響 ―ヨーロッパ―",
+      "open": true,
+      "kw": [
+       "EU統合と人々の生活",
+       "EU統合による農業への影響",
+       "EU統合による工業や社会への影響",
+       "EU",
+       "白地図"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "ブリュッセル",
+         "lat": 50.8,
+         "lon": 4.4
+        },
+        {
+         "n": "パリ",
+         "lat": 48.9,
+         "lon": 2.35
+        },
+        {
+         "n": "ベルリン",
+         "lat": 52.5,
+         "lon": 13.4
+        }
+       ]
+      },
+      "links": [
+       "c2l1",
+       "c8l1",
+       "c10l1",
+       "c11l1"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g4",
+    "label": "第2部 第2章",
+    "badge": "2-2",
+    "title": "地球的課題と国際協力",
+    "era": "国際理解と国際協力",
+    "lessons": [
+     {
+      "id": "g4s1",
+      "label": "1節",
+      "title": "複雑に絡み合う地球的課題",
+      "open": true,
+      "kw": [
+       "相互に関連する地球的課題とその解決に向けて",
+       "SDGs"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c11l3"
+      ]
+     },
+     {
+      "id": "g4s2",
+      "label": "2節",
+      "title": "地球環境問題",
+      "open": true,
+      "kw": [
+       "多様な地球環境問題",
+       "熱帯林の破壊",
+       "地球温暖化",
+       "海洋汚染"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "アマゾン",
+         "lat": -3.1,
+         "lon": -60
+        }
+       ]
+      },
+      "links": [
+       "c1l1",
+       "c10l3",
+       "c11l3"
+      ]
+     },
+     {
+      "id": "g4s3",
+      "label": "3節",
+      "title": "資源・エネルギー問題",
+      "open": true,
+      "kw": [
+       "世界のエネルギー・鉱産資源",
+       "エネルギー利用の現状と課題",
+       "地域で異なるエネルギー問題への取り組み",
+       "水の利用"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "ペルシア湾",
+         "lat": 26,
+         "lon": 51
+        }
+       ]
+      },
+      "links": [
+       "c1l1",
+       "c10l2",
+       "c11l3"
+      ]
+     },
+     {
+      "id": "g4s4",
+      "label": "4節",
+      "title": "人口問題",
+      "open": true,
+      "kw": [
+       "世界の人口",
+       "発展途上国と先進国の人口問題",
+       "地域で異なる人口問題への取り組み",
+       "教育の普及",
+       "少子高齢化"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c1l1",
+       "c11l2"
+      ]
+     },
+     {
+      "id": "g4s5",
+      "label": "5節",
+      "title": "食料問題",
+      "open": true,
+      "kw": [
+       "飢餓と飽食",
+       "地域で異なる食料問題への取り組み",
+       "食料生産"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c4l2",
+       "c6l1"
+      ]
+     },
+     {
+      "id": "g4s6",
+      "label": "6節",
+      "title": "都市・居住問題",
+      "open": true,
+      "kw": [
+       "世界の都市の発達",
+       "発展途上国と先進国の都市・居住問題",
+       "地域で異なる都市・居住問題への取り組み",
+       "感染症の予防",
+       "関係図"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c1l1",
+       "c10l3"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g5",
+    "label": "第3部 第1章",
+    "badge": "3-1",
+    "title": "自然環境と防災",
+    "era": "持続可能な地域づくりと私たち",
+    "lessons": [
+     {
+      "id": "g5s1",
+      "label": "1節",
+      "title": "日本の自然環境",
+      "open": true,
+      "kw": [
+       "日本の地形",
+       "日本の気候"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": []
+     },
+     {
+      "id": "g5s2",
+      "label": "2節",
+      "title": "地震・津波と防災",
+      "open": true,
+      "kw": [
+       "地震・津波による災害",
+       "地震・津波の被災地の取り組み",
+       "ハザードマップ"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "関東",
+         "lat": 35.4,
+         "lon": 139.4
+        },
+        {
+         "n": "神戸",
+         "lat": 34.7,
+         "lon": 135.2
+        },
+        {
+         "n": "東北",
+         "lat": 38.3,
+         "lon": 141
+        }
+       ]
+      },
+      "links": [
+       "c6l1",
+       "c11l2"
+      ]
+     },
+     {
+      "id": "g5s3",
+      "label": "3節",
+      "title": "火山災害と防災",
+      "open": true,
+      "kw": [
+       "火山の恵みと災害",
+       "火山と共生する地域の取り組み",
+       "火山地形"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": [
+        {
+         "n": "桜島",
+         "lat": 31.6,
+         "lon": 130.7
+        },
+        {
+         "n": "富士山",
+         "lat": 35.4,
+         "lon": 138.7
+        }
+       ]
+      },
+      "links": []
+     },
+     {
+      "id": "g5s4",
+      "label": "4節",
+      "title": "気象災害と防災",
+      "open": true,
+      "kw": [
+       "さまざまな気象災害",
+       "気象災害への取り組み",
+       "水害"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": []
+     },
+     {
+      "id": "g5s5",
+      "label": "5節",
+      "title": "自然災害への備え",
+      "open": true,
+      "kw": [
+       "減災の取り組み",
+       "被災地への支援",
+       "クロスロード",
+       "災害発生時の行動計画"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": [
+       "c11l2"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "g6",
+    "label": "第3部 第2章",
+    "badge": "3-2",
+    "title": "生活圏の調査と地域の展望",
+    "era": "持続可能な地域づくりと私たち",
+    "lessons": [
+     {
+      "id": "g6s1",
+      "label": "1節",
+      "title": "生活圏の調査と地域の展望",
+      "open": true,
+      "kw": [
+       "地理的な課題と地域調査",
+       "現地調査の準備",
+       "現地調査の実施",
+       "新旧地形図の比較",
+       "調査の分析と発表",
+       "ポスターセッション"
+      ],
+      "items": {},
+      "hidden": {},
+      "axis": {
+       "places": []
+      },
+      "links": []
+     }
+    ]
+   }
+  ]
+ }
 }</script>
 <script id="main">
 (function(){
@@ -1970,7 +2943,15 @@ function files(l,k){return (l.items&&l.items[k])||[]}
 function hiddenT(l,k){return !!(l.hidden&&l.hidden[k])}
 function visibleTypes(l){return TYPES.filter(function(t){return files(l,t.k).length&&!hiddenT(l,t.k)})}
 function isNewFile(f){return !!(f.d&&daysAgo(f.d)<=NEW_DAYS)}
-function allLessons(){var a=[];state.chapters.forEach(function(c,ci){c.lessons.forEach(function(l,li){a.push({c:c,l:l,ci:ci,li:li})})});return a}
+var SUBJS=[{k:'rekishi',n:'歴史総合',o:'地理'},{k:'chiri',n:'地理総合',o:'歴史'}];
+var SUBJ='rekishi'; try{if(localStorage.getItem('rekishi-subj')==='chiri')SUBJ='chiri'}catch(e){}
+function chaps(k){return (k||SUBJ)==='chiri'?((state.geo&&state.geo.chapters)||[]):state.chapters}
+function subjName(k){return k==='chiri'?'地理総合':'歴史総合'}
+function allLessons(k){var a=[];(k?[k]:['rekishi','chiri']).forEach(function(sk){chaps(sk).forEach(function(c,ci){c.lessons.forEach(function(l,li){a.push({c:c,l:l,ci:ci,li:li,s:sk})})})});return a}
+function linksOf(l){var out=[];if(l.links)l.links.forEach(function(id){out.push(id)});allLessons('chiri').forEach(function(x){if(x.l.id!==l.id&&(x.l.links||[]).indexOf(l.id)>=0)out.push(x.l.id)});return out.map(findLesson).filter(Boolean)}
+function setSubj(k){SUBJ=k;try{localStorage.setItem('rekishi-subj',k)}catch(e){}}
+function gotoLesson(id){var f=findLesson(id);if(!f)return;if(f.s!==SUBJ){setSubj(f.s);query='';render()}var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+(function(){var h=decodeURIComponent((location.hash||'').slice(1));if(h==='chiri'||h==='rekishi'){SUBJ=h;return}if(h&&state.geo){for(var i=0;i<state.geo.chapters.length;i++){var c=state.geo.chapters[i];if(c.id===h||c.lessons.some(function(l){return l.id===h})){SUBJ='chiri';return}}}})();
 function findLesson(id){var a=allLessons();for(var i=0;i<a.length;i++)if(a[i].l.id===id){a[i].i=i;return a[i]}return null}
 function tgt(){return 'target="_blank" rel="noopener"'}
 function pinHash(pin){var s='rekishi-sogo:'+pin,h=2166136261;for(var r=0;r<3;r++)for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)>>>0}return ('0000000'+h.toString(16)).slice(-8)}
@@ -2020,7 +3001,7 @@ function resultsHtml(){
   if(!rs.length) return '<p class="rhead">「'+esc(q)+'」は見つかりませんでした。別の言葉で試してください。</p>';
   return '<p class="rhead">「'+esc(q)+'」が出てくる講：'+rs.length+'件</p>'+rs.map(function(r){
     var l=r.x.l;
-    return '<div class="hit"><a class="ht" href="#'+esc(l.id)+'"><small>'+esc(r.x.c.label+' '+r.x.c.title+'　'+l.label)+'</small>'+esc(l.title)+'</a>'+
+    return '<div class="hit"><a class="ht" href="#'+esc(l.id)+'" data-goto="'+esc(l.id)+'"><small><span class="stag s-'+r.x.s+'">'+esc(subjName(r.x.s))+'</span>'+esc(r.x.c.label+' '+r.x.c.title+'　'+l.label)+'</small>'+esc(l.title)+'</a>'+
       '<div class="why">'+r.why.slice(0,3).join('<br>')+'</div>'+(l.open?matButtons(l):'<p class="none">まだ公開されていません</p>')+'</div>'}).join('');
 }
 
@@ -2088,16 +3069,19 @@ function nowCard(){
 var HERO_ART='<svg class="hero-art" viewBox="0 -34 800 294" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false"><rect x="18" y="174" width="200" height="80" fill="currentColor"/><polygon points="18,174 18,146 58,174 58,146 98,174 98,146 138,174 138,146 178,174 178,146 218,174" fill="currentColor"/><polygon points="21,152 21,170 38,170" class="hole"/><polygon points="61,152 61,170 78,170" class="hole"/><polygon points="101,152 101,170 118,170" class="hole"/><polygon points="141,152 141,170 158,170" class="hole"/><polygon points="181,152 181,170 198,170" class="hole"/><rect x="32" y="188" width="14" height="18" class="hole"/><rect x="62" y="188" width="14" height="18" class="hole"/><rect x="92" y="188" width="14" height="18" class="hole"/><rect x="122" y="188" width="14" height="18" class="hole"/><rect x="152" y="188" width="14" height="18" class="hole"/><rect x="182" y="188" width="14" height="18" class="hole"/><rect x="32" y="216" width="14" height="18" class="hole"/><rect x="62" y="216" width="14" height="18" class="hole"/><rect x="92" y="216" width="14" height="18" class="hole"/><rect x="122" y="216" width="14" height="18" class="hole"/><rect x="152" y="216" width="14" height="18" class="hole"/><rect x="182" y="216" width="14" height="18" class="hole"/><rect x="104" y="224" width="24" height="30" class="hole"/><polygon points="37,154 40,64 52,64 55,154" fill="currentColor"/><rect x="38" y="58" width="16" height="7" fill="currentColor"/><circle cx="58" cy="48" r="11" fill="currentColor" opacity="0.42"/><circle cx="76" cy="36" r="15" fill="currentColor" opacity="0.32"/><circle cx="100" cy="26" r="19" fill="currentColor" opacity="0.22"/><circle cx="130" cy="20" r="22" fill="currentColor" opacity="0.13"/><polygon points="81,154 84,84 96,84 99,154" fill="currentColor"/><rect x="82" y="78" width="16" height="7" fill="currentColor"/><circle cx="102" cy="68" r="11" fill="currentColor" opacity="0.42"/><circle cx="120" cy="56" r="15" fill="currentColor" opacity="0.32"/><circle cx="144" cy="46" r="19" fill="currentColor" opacity="0.22"/><circle cx="174" cy="40" r="22" fill="currentColor" opacity="0.13"/><polygon points="235,254 240,40 252,40 257,254" fill="currentColor"/><rect x="237" y="32" width="18" height="9" fill="currentColor"/><circle cx="260" cy="18" r="12" fill="currentColor" opacity="0.4"/><circle cx="282" cy="8" r="16" fill="currentColor" opacity="0.28"/><circle cx="310" cy="4" r="20" fill="currentColor" opacity="0.17"/><rect x="0" y="254" width="800" height="6" fill="currentColor"/><rect x="262" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="278" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="294" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="310" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="326" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="342" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="358" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="374" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="390" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="406" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="422" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="438" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="454" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="470" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="486" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="502" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="518" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="534" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="550" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="566" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="582" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="598" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="614" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="630" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="646" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="662" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="678" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="694" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="710" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="726" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="742" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="758" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="774" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="790" y="251" width="9" height="3" fill="currentColor" opacity=".7"/><rect x="290" y="126" width="4" height="128" fill="currentColor"/><rect x="276" y="132" width="32" height="3" fill="currentColor"/><rect x="281" y="144" width="22" height="3" fill="currentColor"/><rect x="650" y="126" width="4" height="128" fill="currentColor"/><rect x="636" y="132" width="32" height="3" fill="currentColor"/><rect x="641" y="144" width="22" height="3" fill="currentColor"/><rect x="778" y="126" width="4" height="128" fill="currentColor"/><rect x="764" y="132" width="32" height="3" fill="currentColor"/><rect x="769" y="144" width="22" height="3" fill="currentColor"/><path d="M306,133 Q472.0,149 638,133" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".8"/><path d="M306,145 Q472.0,165 638,145" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".8"/><path d="M666,133 Q716.0,149 766,133" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".8"/><path d="M666,145 Q716.0,165 766,145" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".8"/><path d="M260,133 Q269.0,140 278,133" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".8"/><rect x="318" y="190" width="52" height="36" rx="2" fill="currentColor"/><rect x="322" y="184" width="44" height="7" fill="currentColor" opacity=".85"/><circle cx="330" cy="242" r="9" fill="currentColor"/><circle cx="330" cy="242" r="5" class="hole"/><circle cx="330" cy="242" r="2" fill="currentColor"/><circle cx="358" cy="242" r="9" fill="currentColor"/><circle cx="358" cy="242" r="5" class="hole"/><circle cx="358" cy="242" r="2" fill="currentColor"/><rect x="368" y="218" width="8" height="4" fill="currentColor"/><rect x="376" y="170" width="44" height="58" fill="currentColor"/><rect x="371" y="164" width="54" height="7" rx="2" fill="currentColor"/><rect x="385" y="178" width="18" height="16" rx="2" class="hole"/><rect x="418" y="188" width="92" height="34" rx="6" fill="currentColor"/><rect x="508" y="184" width="16" height="40" rx="3" fill="currentColor"/><path d="M446,188 a11,11 0 0 1 22,0 Z" fill="currentColor"/><path d="M480,188 a7,7 0 0 1 14,0 Z" fill="currentColor"/><polygon points="510,184 508,166 502,154 530,154 524,166 522,184" fill="currentColor"/><rect x="374" y="224" width="160" height="7" fill="currentColor"/><polygon points="524,230 544,252 524,252" fill="currentColor"/><circle cx="390" cy="244" r="10" fill="currentColor"/><circle cx="390" cy="244" r="6" class="hole"/><circle cx="390" cy="244" r="3" fill="currentColor"/><circle cx="436" cy="238" r="16" fill="currentColor"/><circle cx="436" cy="238" r="12" class="hole"/><circle cx="436" cy="238" r="3" fill="currentColor"/><line x1="424.0" y1="238.0" x2="448.0" y2="238.0" stroke="currentColor" stroke-width="1.6"/><line x1="427.5" y1="229.5" x2="444.5" y2="246.5" stroke="currentColor" stroke-width="1.6"/><line x1="436.0" y1="226.0" x2="436.0" y2="250.0" stroke="currentColor" stroke-width="1.6"/><line x1="444.5" y1="229.5" x2="427.5" y2="246.5" stroke="currentColor" stroke-width="1.6"/><circle cx="474" cy="238" r="16" fill="currentColor"/><circle cx="474" cy="238" r="12" class="hole"/><circle cx="474" cy="238" r="3" fill="currentColor"/><line x1="462.0" y1="238.0" x2="486.0" y2="238.0" stroke="currentColor" stroke-width="1.6"/><line x1="465.5" y1="229.5" x2="482.5" y2="246.5" stroke="currentColor" stroke-width="1.6"/><line x1="474.0" y1="226.0" x2="474.0" y2="250.0" stroke="currentColor" stroke-width="1.6"/><line x1="482.5" y1="229.5" x2="465.5" y2="246.5" stroke="currentColor" stroke-width="1.6"/><circle cx="514" cy="246" r="8" fill="currentColor"/><circle cx="514" cy="246" r="4" class="hole"/><rect x="432" y="235" width="46" height="4" rx="2" fill="currentColor"/><circle cx="531" cy="196" r="4" class="hole"/><circle cx="512" cy="142" r="10" fill="currentColor" opacity="0.45"/><circle cx="494" cy="130" r="14" fill="currentColor" opacity="0.34"/><circle cx="468" cy="120" r="18" fill="currentColor" opacity="0.25"/><circle cx="436" cy="114" r="21" fill="currentColor" opacity="0.16"/><circle cx="400" cy="112" r="22" fill="currentColor" opacity="0.09"/><rect x="556" y="158" width="88" height="96" fill="currentColor"/><rect x="552" y="154" width="96" height="6" fill="currentColor"/><path d="M564,234 v-34 a6,6 0 0 1 12,0 v34 Z" class="hole"/><rect x="564" y="170" width="12" height="16" class="hole"/><path d="M584,234 v-34 a6,6 0 0 1 12,0 v34 Z" class="hole"/><rect x="584" y="170" width="12" height="16" class="hole"/><path d="M604,234 v-34 a6,6 0 0 1 12,0 v34 Z" class="hole"/><rect x="604" y="170" width="12" height="16" class="hole"/><path d="M624,234 v-34 a6,6 0 0 1 12,0 v34 Z" class="hole"/><rect x="624" y="170" width="12" height="16" class="hole"/><rect x="582" y="102" width="36" height="54" fill="currentColor"/><rect x="579" y="98" width="42" height="5" fill="currentColor"/><circle cx="600" cy="126" r="12" class="hole"/><circle cx="600" cy="126" r="9.5" fill="currentColor" opacity=".18"/><line x1="600" y1="126" x2="600" y2="117" stroke="currentColor" stroke-width="2"/><line x1="600" y1="126" x2="606" y2="129" stroke="currentColor" stroke-width="2"/><polygon points="580,98 600,58 620,98" fill="currentColor"/><rect x="599" y="40" width="2" height="20" fill="currentColor"/><rect x="666" y="220" width="90" height="34" fill="currentColor"/><polygon points="662,220 711,204 760,220" fill="currentColor"/><rect x="676" y="230" width="10" height="12" class="hole"/><rect x="696" y="230" width="10" height="12" class="hole"/><rect x="716" y="230" width="10" height="12" class="hole"/><rect x="736" y="230" width="10" height="12" class="hole"/></svg>';
 var HUES=[205,185,160,135,95,45,25,355,330,295,265,235];
 function hue(ci){return HUES[ci%HUES.length]}
-function cnum(c){var m=/第(\d+)章/.exec(c.label);return m?m[1]:(c.label||'').charAt(0)}
+function cnum(c){if(c.badge)return c.badge;var m=/第(\d+)章/.exec(c.label);return m?m[1]:(c.label||'').charAt(0)}
 function nav(){
-  return '<nav class="cnav" aria-label="章へ移動">'+state.chapters.map(function(c,ci){return '<a href="#'+esc(c.id)+'" style="--h:'+hue(ci)+'"><b>'+esc(cnum(c))+'</b>'+esc(c.label)+'</a>'}).join('')+'</nav>'+
-    (edit?'':'<div class="tools"><input id="q" class="search" type="search" placeholder="言葉で探す（例：ペリー、地租改正、冷戦）" value="'+esc(query)+'" aria-label="講を検索">'+
+  return '<nav class="cnav" aria-label="章へ移動">'+chaps().map(function(c,ci){return '<a href="#'+esc(c.id)+'" style="--h:'+hue(ci)+'"><b>'+esc(cnum(c))+'</b>'+esc(c.label)+'</a>'}).join('')+'</nav>'+
+    (edit?'':'<div class="tools"><input id="q" class="search" type="search" placeholder="言葉で探す（歴史・地理の両方から）" value="'+esc(query)+'" aria-label="講を検索">'+
     '<label class="chk"><input id="onlyhas" type="checkbox"'+(onlyHas?' checked':'')+'> 教材がある講だけ</label></div><div class="results" id="results">'+resultsHtml()+'</div>');
 }
 var SCALES=['世界','地域','国家','地方'];
 function axX(y){y=Math.max(1500,Math.min(2026,y));return y<=1800?(y-1500)/300*25:25+(y-1800)/226*75}
 function axisHtml(l){
   var a=l.axis; if(!a) return '';
+  if(!a.from){var gp=a.places||[]; if(!gp.length) return '';
+    return '<div class="axis geo"><svg class="amap" viewBox="0 0 360 142" role="img" aria-label="場所：'+esc(gp.map(function(p){return p.n}).join('、'))+'"><use href="#worldland"/>'+gp.map(function(p){var x=(p.lon+180),y=(84-p.lat);return '<circle class="ring" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="17"/><circle class="dot" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="9"><title>'+esc(p.n)+'</title></circle>'}).join('')+'</svg>'+
+      '<div class="ainfo"><div class="aline"><b>どこ</b><span class="aplace">'+esc(gp.map(function(p){return p.n}).join('・'))+'</span></div></div></div>'}
   var x0=axX(a.from), x1=Math.max(axX(a.to),x0+1.2);
   var yr=a.from===a.to?a.from+'年':a.from+'〜'+(a.to>=new Date().getFullYear()?'現在':a.to+'年');
   var pls=a.places||[];
@@ -2120,7 +3104,7 @@ function lcode(c,l){var n=String(l.label||'').replace(/[^0-9]/g,'');return cnum(
 function scrollMxTo(){var sc=document.querySelector('.mxscroll'),b=sc&&sc.querySelector('.mxb.sel');if(!sc||!b)return;var r=b.getBoundingClientRect(),q=sc.getBoundingClientRect();if(r.left<q.left+80||r.right>q.right-10)sc.scrollLeft+=r.left-q.left-q.width/2}
 function overlap(a,b){return a.from<=b.to&&b.from<=a.to}
 function mxView(){
-  var all=allLessons().filter(function(x){return x.l.axis});
+  var all=allLessons('rekishi').filter(function(x){return x.l.axis&&x.l.axis.from});
   if(!all.length) return '';
   var sel=mxSel&&findLesson(mxSel); if(sel&&!sel.l.axis) sel=null;
   var sa=sel&&sel.l.axis, MINW=3.4, GAP=0.5;
@@ -2151,7 +3135,16 @@ function mxView(){
   return h+'<div class="mxinfo"><p class="t"><small>'+esc(sel.c.label+' '+sel.l.label)+'</small>'+esc(sel.l.title)+'</p>'+
     '<p class="m">'+esc(yr)+'　｜　'+esc((sa.places||[]).map(function(p){return p.n}).join('・'))+'</p>'+
     '<h4>同じころ、ほかの講では</h4>'+(rows?'<div class="mxsame">'+rows+'</div>':'<p class="m">時代が重なる講はありません</p>')+
+    (function(){var g=linksOf(sel.l);return g.length?'<h4>地理でつながる講</h4><div class="mxsame">'+g.map(function(x){return '<button class="mxc" data-act="goto" data-id="'+esc(x.l.id)+'"><b>地理</b><span class="tt">'+esc(x.l.title.replace(/\s*―.*$/,''))+'</span><span class="rg">'+esc(x.c.label)+'</span></button>'}).join('')+'</div>':''})()+
     (sel.l.open?'<a class="mxgo" href="#'+esc(sel.l.id)+'">この講の教材へ ↓</a>':'')+'</div></section>';
+}
+function linksHtml(l){
+  var ls=linksOf(l); if(!ls.length) return '';
+  var other=ls[0].s;
+  return '<div class="xlinks"><b>'+(other==='chiri'?'地理':'歴史')+'とつながる</b><span>'+ls.map(function(x){return '<a href="#'+esc(x.l.id)+'" data-goto="'+esc(x.l.id)+'" class="xl s-'+x.s+'">'+esc(x.l.title.replace(/\s*―.*$/,''))+'</a>'}).join('')+'</span></div>';
+}
+function subjSwitch(){
+  return '<div class="subj" role="tablist" aria-label="教科">'+SUBJS.map(function(x){var on=x.k===SUBJ;return '<button role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" data-act="subj" data-k="'+x.k+'">'+x.n+'</button>'}).join('')+'</div>';
 }
 function lessonView(c,l){
   var cur=state.current===l.id, done=!!S.done[l.id], vt=visibleTypes(l);
@@ -2161,6 +3154,7 @@ function lessonView(c,l){
   if(!l.open) return h+'<p class="none">まだ公開されていません</p></article>';
   h+=axisHtml(l);
   h+=matButtons(l);
+  h+=linksHtml(l);
   if(l.terms&&l.terms.length) h+='<div class="terms" aria-label="この講の用語"><b>用語</b>'+l.terms.map(function(w){return '<span>'+esc(w)+'</span>'}).join('')+'</div>';
   return h+'</article>';
 }
@@ -2226,9 +3220,10 @@ function render(){
   var h=header();
   if(!edit) h+=newsView();
   if(!edit){var d=nowCard(); if(d) h+='<div class="dash" style="margin-top:14px">'+d+'</div>'}
-  if(!edit) h+=mxView();
+  if(!edit) h+=subjSwitch();
+  if(!edit&&SUBJ==='rekishi') h+=mxView();
   h+=nav();
-  state.chapters.forEach(function(c,ci){
+  (edit?state.chapters:chaps()).forEach(function(c,ci){
     h+='<section class="chap" id="'+esc(c.id)+'" style="--h:'+hue(ci)+'"><div class="chead"><span class="cbadge" aria-hidden="true">'+esc(cnum(c))+'</span><span class="cl">'+esc(c.label)+(c.era?'<span class="era">'+esc(c.era)+'</span>':'')+'</span><h2>'+esc(c.title)+'</h2></div>';
     if(edit) h+=chapEdit(c,ci);
     h+='<div class="lessons">'+c.lessons.map(function(l,li){return edit?lessonEdit(c,l,ci,li):lessonView(c,l)}).join('')+'</div></section>';
@@ -2456,8 +3451,11 @@ app.addEventListener('click',function(e){
   if(fl){e.preventDefault();if(!edit&&fl.dataset.seen){S.seen[fl.dataset.seen]=1;persist();setTimeout(render,400)}openPdf(fl.getAttribute('href'),fl.dataset.title||fl.textContent);return}
   var sn=e.target.closest('[data-seen]');
   if(sn&&!edit){S.seen[sn.dataset.seen]=1;persist();setTimeout(render,400);return}
+  var gt=e.target.closest('a[data-goto]'); if(gt){e.preventDefault();gotoLesson(gt.dataset.goto);return}
   var b=e.target.closest('[data-act]'); if(!b) return;
   var a=b.dataset.act, ds=b.dataset;
+  if(a==='subj'){if(ds.k!==SUBJ){setSubj(ds.k);query='';render();var sw=document.querySelector('.subj');if(sw&&sw.getBoundingClientRect().top<0)sw.scrollIntoView({block:'start'})}return}
+  if(a==='goto'){gotoLesson(ds.id);return}
   if(a==='mx-sel'){var j=!!ds.jump;mxSel=(!j&&mxSel===ds.id)?null:ds.id;render();if(j){var m=document.getElementById('mx');if(m)m.scrollIntoView({behavior:'smooth',block:'start'})}scrollMxTo();return}
   if(a==='news-more'){newsAll=!newsAll;render();return}
   if(a==='edit-on'){edit=true;status='';render();return}
