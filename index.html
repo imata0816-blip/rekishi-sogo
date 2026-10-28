@@ -98,6 +98,37 @@ button{cursor:pointer}
 .now .mats a,.now .mats .mat{background:var(--on-accent);color:var(--accent);border-color:var(--on-accent)}
 .now .none{color:var(--on-accent);opacity:.85}
 .now .jump{font-size:13px;color:var(--on-accent)}
+
+/* 時空マトリクス */
+.mx{scroll-margin-top:72px;margin-top:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:16px 16px 14px}
+.mx h2{margin:0;font-size:16px;font-weight:900;letter-spacing:.04em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.mx h2 small{font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.02em}
+.mxscroll{overflow-x:auto;margin:12px -4px 0;padding:0 4px 4px;-webkit-overflow-scrolling:touch}
+.mxgrid{min-width:680px;display:grid;grid-template-columns:76px minmax(0,1fr)}
+.mxlab{position:sticky;left:-4px;z-index:2;background:var(--surface);font-size:10.5px;font-weight:700;color:var(--muted);line-height:1.25;padding:6px 8px 6px 0;border-top:1px solid var(--line);white-space:pre-line;display:flex;align-items:center}
+.mxrow{position:relative;border-top:1px solid var(--line);min-height:30px}
+.mxspan{position:absolute;top:0;bottom:0;background:var(--new);opacity:.12;pointer-events:none}
+.mxb{position:absolute;height:16px;border:0;padding:0 3px;border-radius:3px;background:var(--ink);color:var(--surface);font:700 9.5px/16px system-ui,sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;cursor:pointer;text-align:left;transition:opacity .15s}
+.mxb.fade{opacity:.22}
+.mxb.sel{background:var(--new);color:#fff}
+.mxb:focus-visible{outline:2px solid var(--new);outline-offset:1px}
+.mxax{position:relative;height:16px;border-top:1px solid var(--ink);font-size:9.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mxax span{position:absolute;top:3px;transform:translateX(-50%)}
+.mxax span:first-child{transform:none}
+.mxhint{margin:10px 0 0;font-size:12px;color:var(--muted)}
+.mxinfo{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.mxinfo .t{font-size:15px;font-weight:900;margin:0}
+.mxinfo .t small{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.mxinfo .m{font-size:12px;color:var(--muted);margin:4px 0 0}
+.mxinfo h4{font-size:12px;margin:12px 0 6px;letter-spacing:.06em}
+.mxsame{display:grid;gap:6px}
+.mxsame div{display:flex;gap:8px;align-items:baseline;font-size:12px}
+.mxsame b{flex:none;width:8.5em;font-size:10.5px;color:var(--muted)}
+.mxsame span{display:flex;flex-wrap:wrap;gap:4px}
+.mxc{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:2px 9px;font:500 11.5px/1.5 inherit;cursor:pointer}
+.mxc:hover{border-color:var(--ink)}
+.mxgo{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--ink)}
+.amx{margin-top:2px;border:0;background:none;padding:0;font:700 11px/1.4 inherit;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;justify-self:start;grid-column:1/-1}
 /* 時間軸・空間軸（講カード） */
 .axis{display:grid;grid-template-columns:132px minmax(0,1fr);gap:8px 12px;align-items:center;padding:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
 .amap{width:132px;height:auto;display:block;color:var(--map-land)}
@@ -119,6 +150,7 @@ button{cursor:pointer}
 .ascale{display:flex;gap:4px;flex-wrap:wrap}
 .ascale span{font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 .ascale span.on{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+@media (max-width:520px){.mxsame div{flex-direction:column;gap:4px}.mxsame b{width:auto}}
 @media (max-width:360px){.axis{grid-template-columns:104px minmax(0,1fr)}.amap{width:104px}}
 .atl{grid-column:1/-1;display:grid;gap:1px}
 /* 用語 */
@@ -308,6 +340,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 25,
         "lon": 78
        }
+      ],
+      "region": [
+       "jp",
+       "ea",
+       "wa"
       ]
      }
     },
@@ -359,6 +396,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 8,
         "lon": 75
        }
+      ],
+      "region": [
+       "eu",
+       "am",
+       "wa"
       ]
      }
     }
@@ -403,6 +445,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 53,
         "lon": -2
        }
+      ],
+      "region": [
+       "eu"
       ]
      }
     },
@@ -446,6 +491,10 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 47,
         "lon": 2
        }
+      ],
+      "region": [
+       "am",
+       "eu"
       ]
      }
     }
@@ -508,6 +557,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 47,
         "lon": 2
        }
+      ],
+      "region": [
+       "eu"
       ]
      }
     },
@@ -546,6 +598,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 39,
         "lon": -95
        }
+      ],
+      "region": [
+       "am"
       ]
      }
     },
@@ -599,6 +654,10 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 32,
         "lon": 115
        }
+      ],
+      "region": [
+       "wa",
+       "ea"
       ]
      }
     }
@@ -657,6 +716,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 32.5,
         "lon": 131
        }
+      ],
+      "region": [
+       "jp"
       ]
      }
     },
@@ -711,6 +773,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 26.2,
         "lon": 127.7
        }
+      ],
+      "region": [
+       "jp"
       ]
      }
     }
@@ -770,6 +835,10 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 23.7,
         "lon": 121
        }
+      ],
+      "region": [
+       "jp",
+       "ea"
       ]
      }
     },
@@ -820,6 +889,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 49,
         "lon": 8
        }
+      ],
+      "region": [
+       "wa",
+       "ea",
+       "eu"
       ]
      }
     },
@@ -872,6 +946,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 36,
         "lon": 138
        }
+      ],
+      "region": [
+       "jp",
+       "ea",
+       "eu"
       ]
      }
     }
@@ -929,6 +1008,10 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 36.5,
         "lon": 120
        }
+      ],
+      "region": [
+       "eu",
+       "ea"
       ]
      }
     },
@@ -987,6 +1070,12 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 39.9,
         "lon": 32.8
        }
+      ],
+      "region": [
+       "eu",
+       "am",
+       "ea",
+       "wa"
       ]
      }
     }
@@ -1122,6 +1211,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 36.7,
         "lon": 137.2
        }
+      ],
+      "region": [
+       "jp"
       ]
      }
     }
@@ -1187,6 +1279,10 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 40.4,
         "lon": -3.7
        }
+      ],
+      "region": [
+       "am",
+       "eu"
       ]
      }
     },
@@ -1239,6 +1335,10 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 35.7,
         "lon": 139.7
        }
+      ],
+      "region": [
+       "jp",
+       "ea"
       ]
      }
     }
@@ -1295,6 +1395,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 55.7,
         "lon": 37.6
        }
+      ],
+      "region": [
+       "eu"
       ]
      }
     },
@@ -1352,6 +1455,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 33.6,
         "lon": 131
        }
+      ],
+      "region": [
+       "jp",
+       "ea",
+       "am"
       ]
      }
     }
@@ -1429,6 +1537,12 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 31.8,
         "lon": 35.2
        }
+      ],
+      "region": [
+       "eu",
+       "am",
+       "ea",
+       "wa"
       ]
      }
     },
@@ -1471,6 +1585,10 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 37.8,
         "lon": -122.4
        }
+      ],
+      "region": [
+       "jp",
+       "am"
       ]
      }
     }
@@ -1525,6 +1643,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 2,
         "lon": 20
        }
+      ],
+      "region": [
+       "eu",
+       "wa",
+       "ea"
       ]
      }
     },
@@ -1576,6 +1699,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 39.9,
         "lon": 116.4
        }
+      ],
+      "region": [
+       "am",
+       "ea",
+       "wa"
       ]
      }
     },
@@ -1618,6 +1746,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 26.2,
         "lon": 127.7
        }
+      ],
+      "region": [
+       "jp"
       ]
      }
     }
@@ -1683,6 +1814,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 29.3,
         "lon": 47.9
        }
+      ],
+      "region": [
+       "eu",
+       "ea",
+       "wa"
       ]
      }
     },
@@ -1730,6 +1866,9 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 38.3,
         "lon": 141
        }
+      ],
+      "region": [
+       "jp"
       ]
      }
     },
@@ -1785,6 +1924,11 @@ mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
         "lat": 50.4,
         "lon": 30.5
        }
+      ],
+      "region": [
+       "am",
+       "wa",
+       "eu"
       ]
      }
     }
@@ -1963,9 +2107,51 @@ function axisHtml(l){
     '<div class="ainfo"><div class="aline"><b>いつ</b><span class="ayr">'+esc(yr)+'</span></div>'+
       '<div class="aline"><b>どこ</b><span class="aplace">'+esc(pls.map(function(p){return p.n}).join('・'))+'</span></div>'+
       '</div>'+
-      '<div class="atl"><div class="aband" aria-hidden="true"><span class="trk"></span>'+ticks.map(function(t){return '<span class="tk" style="left:'+axX(t).toFixed(2)+'%"></span>'}).join('')+'<span class="seg" style="left:'+x0.toFixed(2)+'%;width:'+(x1-x0).toFixed(2)+'%"></span></div>'+
+      '<button class="amx" data-act="mx-sel" data-id="'+esc(l.id)+'" data-jump="1">同じころの世界を見る →</button>'+'<div class="atl"><div class="aband" aria-hidden="true"><span class="trk"></span>'+ticks.map(function(t){return '<span class="tk" style="left:'+axX(t).toFixed(2)+'%"></span>'}).join('')+'<span class="seg" style="left:'+x0.toFixed(2)+'%;width:'+(x1-x0).toFixed(2)+'%"></span></div>'+
       '<div class="aticks" aria-hidden="true">'+[1500,1800,1850,1900,1950,2000].map(function(t){return '<span style="left:'+axX(t).toFixed(2)+'%">'+t+'</span>'}).join('')+'</div></div>'+
     '</div>';
+}
+
+/* ---------- 時空マトリクス ---------- */
+var REGIONS=[{k:'jp',n:'日本',s:'日本'},{k:'ea',n:'東・東南\nアジア',s:'東・東南アジア'},{k:'wa',n:'南・西アジア\nアフリカ',s:'南・西アジア／アフリカ'},{k:'eu',n:'ヨーロッパ\nロシア',s:'ヨーロッパ／ロシア'},{k:'am',n:'南北\nアメリカ',s:'南北アメリカ'}];
+var mxSel=null, mxLeft=null;
+function lcode(c,l){var n=String(l.label||'').replace(/[^0-9]/g,'');return cnum(c)+(n?'-'+n:'')}
+function scrollMxTo(){var sc=document.querySelector('.mxscroll'),b=sc&&sc.querySelector('.mxb.sel');if(!sc||!b)return;var r=b.getBoundingClientRect(),q=sc.getBoundingClientRect();if(r.left<q.left+80||r.right>q.right-10)sc.scrollLeft+=r.left-q.left-q.width/2}
+function overlap(a,b){return a.from<=b.to&&b.from<=a.to}
+function mxView(){
+  var all=allLessons().filter(function(x){return x.l.axis});
+  if(!all.length) return '';
+  var sel=mxSel&&findLesson(mxSel); if(sel&&!sel.l.axis) sel=null;
+  var sa=sel&&sel.l.axis, MINW=3.4, GAP=0.5;
+  var g='';
+  REGIONS.forEach(function(r){
+    var xs=all.filter(function(x){return (x.l.axis.region||[]).indexOf(r.k)>=0}).sort(function(a,b){return a.l.axis.from-b.l.axis.from});
+    var lanes=[], bars='';
+    xs.forEach(function(x){
+      var a=x.l.axis, x0=axX(a.from), w=Math.max(axX(a.to)-x0,MINW), li=0;
+      while(lanes[li]!=null&&lanes[li]>x0-GAP) li++;
+      lanes[li]=x0+w;
+      var cls='mxb'+(sel?(x.l.id===sel.l.id?' sel':(overlap(a,sa)?'':' fade')):'');
+      bars+='<button class="'+cls+'" style="left:'+x0.toFixed(2)+'%;width:'+w.toFixed(2)+'%;top:'+(6+li*20)+'px" data-act="mx-sel" data-id="'+esc(x.l.id)+'" title="'+esc(x.l.title+'（'+a.from+'〜'+a.to+'）')+'" aria-label="'+esc(x.c.label+' '+x.l.label+' '+x.l.title)+'">'+esc(lcode(x.c,x.l))+'</button>';
+    });
+    var hgt=Math.max(30,12+Math.max(lanes.length,1)*20);
+    var span=sa?'<span class="mxspan" style="left:'+axX(sa.from).toFixed(2)+'%;width:'+Math.max(axX(sa.to)-axX(sa.from),0.6).toFixed(2)+'%"></span>':'';
+    g+='<div class="mxlab">'+esc(r.n)+'</div><div class="mxrow" style="height:'+hgt+'px">'+span+bars+'</div>';
+  });
+  g+='<div class="mxlab" style="border-top:1px solid var(--ink)"></div><div class="mxax">'+[1500,1600,1700,1800,1850,1900,1950,2000].map(function(t){return '<span style="left:'+axX(t).toFixed(2)+'%">'+t+'</span>'}).join('')+'</div>';
+  var h='<section class="mx" id="mx" aria-label="時空マトリクス"><h2>時空マトリクス<small>横が「いつ」、縦が「どこ」。棒（章-講）を押すと、同じころの世界が見えます</small></h2>'+
+    '<div class="mxscroll"><div class="mxgrid">'+g+'</div></div>';
+  if(!sel) return h+'<p class="mxhint">たとえば「6-1」（大正デモクラシー）を押してみよう。同じころ、ヨーロッパやアメリカでは何が起きていた？</p></section>';
+  var same=all.filter(function(x){return x.l.id!==sel.l.id&&overlap(x.l.axis,sa)});
+  var rows=REGIONS.map(function(r){
+    var ys=same.filter(function(x){return (x.l.axis.region||[]).indexOf(r.k)>=0});
+    if(!ys.length) return '';
+    return '<div><b>'+esc(r.s)+'</b><span>'+ys.map(function(x){return '<button class="mxc" data-act="mx-sel" data-id="'+esc(x.l.id)+'">'+esc(lcode(x.c,x.l)+' '+x.l.title)+'</button>'}).join('')+'</span></div>'}).join('');
+  var yr=sa.from+'〜'+(sa.to>=new Date().getFullYear()?'現在':sa.to+'年');
+  return h+'<div class="mxinfo"><p class="t"><small>'+esc(sel.c.label+' '+sel.l.label)+'</small>'+esc(sel.l.title)+'</p>'+
+    '<p class="m">'+esc(yr)+'　｜　'+esc((sa.places||[]).map(function(p){return p.n}).join('・'))+'</p>'+
+    '<h4>同じころ、ほかの講では</h4>'+(rows?'<div class="mxsame">'+rows+'</div>':'<p class="m">時代が重なる講はありません</p>')+
+    (sel.l.open?'<a class="mxgo" href="#'+esc(sel.l.id)+'">この講の教材へ ↓</a>':'')+'</div></section>';
 }
 function lessonView(c,l){
   var cur=state.current===l.id, done=!!S.done[l.id], vt=visibleTypes(l);
@@ -2040,6 +2226,7 @@ function render(){
   var h=header();
   if(!edit) h+=newsView();
   if(!edit){var d=nowCard(); if(d) h+='<div class="dash" style="margin-top:14px">'+d+'</div>'}
+  if(!edit) h+=mxView();
   h+=nav();
   state.chapters.forEach(function(c,ci){
     h+='<section class="chap" id="'+esc(c.id)+'" style="--h:'+hue(ci)+'"><div class="chead"><span class="cbadge" aria-hidden="true">'+esc(cnum(c))+'</span><span class="cl">'+esc(c.label)+(c.era?'<span class="era">'+esc(c.era)+'</span>':'')+'</span><h2>'+esc(c.title)+'</h2></div>';
@@ -2051,7 +2238,9 @@ function render(){
   if(canWrite&&!edit) h+='<button class="editbtn" data-act="edit-on">編集する</button>';
   if(edit) h+='<div class="savebar"><span class="st" role="status">'+esc(status||(dirty?'未保存の変更があります':'変更はまだありません'))+'</span>'+
     '<button class="btn sm" data-act="edit-cancel">'+(dirty?'変更を破棄':'編集を終える')+'</button><button class="btn pri" data-act="save"'+(dirty&&!busy?'':' disabled')+'>保存して公開</button></div>';
+  var mxs=document.querySelector('.mxscroll'); if(mxs) mxLeft=mxs.scrollLeft;
   document.getElementById('app').innerHTML=h;
+  var mxn=document.querySelector('.mxscroll'); if(mxn&&mxLeft!=null) mxn.scrollLeft=mxLeft;
   applyFilter();
   fitHis();
   window.scrollTo(0,y);
@@ -2269,6 +2458,7 @@ app.addEventListener('click',function(e){
   if(sn&&!edit){S.seen[sn.dataset.seen]=1;persist();setTimeout(render,400);return}
   var b=e.target.closest('[data-act]'); if(!b) return;
   var a=b.dataset.act, ds=b.dataset;
+  if(a==='mx-sel'){var j=!!ds.jump;mxSel=(!j&&mxSel===ds.id)?null:ds.id;render();if(j){var m=document.getElementById('mx');if(m)m.scrollIntoView({behavior:'smooth',block:'start'})}scrollMxTo();return}
   if(a==='news-more'){newsAll=!newsAll;render();return}
   if(a==='edit-on'){edit=true;status='';render();return}
   if(a==='edit-cancel'){if(dirty){state=clone(saved);dirty=false}edit=false;status='';pendingDel=null;render();return}
