@@ -3066,8 +3066,8 @@ function matButtons(l){
     fs.forEach(function(f){
       var cls=((S.seen[l.id+':'+t.k]?'seen':'')+(isNewFile(f)?' isnew':'')).trim();
       var lab=esc(fs.length>1?t.s+'：'+f.name:t.s), ttl=esc(l.title+'（'+(fs.length>1?f.name:t.name)+'）');
-      if(f.file){var e2=(f.file.split('.').pop()||'').toLowerCase(), k2=e2==='docx'||e2==='doc'?'Word':e2==='pptx'||e2==='ppt'?'PowerPoint':e2==='pdf'?'PDF':'ファイル';
-        out.push('<a class="mat'+(cls?' '+cls:'')+'" href="'+esc(f.file)+'" '+(e2==='pdf'?'target="_blank" rel="noopener"':'download="'+esc(f.fn||'')+'"')+' data-direct="1" data-seen="'+esc(l.id+':'+t.k)+'">'+lab+'<small>'+k2+(e2==='pdf'?'':' ↓')+'</small></a>');
+      if(f.file){var e2=(((/^https?:/.test(f.file)&&f.fn)?f.fn:f.file).split('.').pop()||'').toLowerCase(), k2=e2==='docx'||e2==='doc'?'Word':e2==='pptx'||e2==='ppt'?'PowerPoint':e2==='pdf'?'PDF':'ファイル';
+        out.push('<a class="mat'+(cls?' '+cls:'')+'" href="'+esc(f.file)+'" '+((e2==='pdf'||/^https?:/.test(f.file))?'target="_blank" rel="noopener"':'download="'+esc(f.fn||'')+'"')+' data-direct="1" data-seen="'+esc(l.id+':'+t.k)+'">'+lab+'<small>'+k2+(e2==='pdf'?'':' ↓')+'</small></a>');
       } else if(f.src&&f.src.assets){var ext=(f.src.fn.split('.').pop()||'').toLowerCase(), kind=ext==='docx'||ext==='doc'?'Word':ext==='pptx'||ext==='ppt'?'PowerPoint':ext==='pdf'?'PDF':ext==='xlsx'?'Excel':'ファイル';
         out.push('<button class="mat'+(cls?' '+cls:'')+'" data-dl="'+esc(f.src.assets.map(function(id){return '/_blob/'+id}).join('|'))+'" data-fn="'+esc(f.src.fn)+'" data-size="'+(f.src.size||0)+'" data-seen="'+esc(l.id+':'+t.k)+'" data-title="'+ttl+'" title="'+kind+'ファイルを保存">'+lab+'<small>'+kind+' ↓</small></button>');
       } else if(f.orig&&f.orig.parts){var isW=/\.docx$/i.test(f.orig.fn);
